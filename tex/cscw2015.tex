@@ -162,15 +162,14 @@ increases ~\cite{scacchi_free/open_2007}.
 
 Existing research approaches FLOSS from many different angles, including
 motivation of open source
-developers~\cite{fang_understanding_2009},
-~\cite{lakhani_why_2003},~\cite{shah_motivation_2006}; governance of open souce
-projects~\cite{hippel_open_2003},~\cite{omahony_guarding_2003},~\cite{omahony_governance_2007};
+developers~\cite{fang_understanding_2009,lakhani_why_2003,shah_motivation_2006}; governance of open souce
+projects~\cite{hippel_open_2003, omahony_guarding_2003, omahony_governance_2007};
 and knowledge sharing within FLOSS
-communities~\cite{endres_tacit_2007},~\cite{hemetsberger_collective_2009},~\cite{sowe_understanding_2008}.
+communities~\cite{endres_tacit_2007, hemetsberger_collective_2009, sowe_understanding_2008}.
 Our study focuses on the behavior of first time contributors to FLOSS projects
 and community response to their contributions. We build on previous studies that
 describe the social processes of community
-joining~\cite{ducheneaut_socialization_2005},~\cite{huang_mining_2005}, ~\cite{von_krogh_community_2003}. Given the
+joining~\cite{ducheneaut_socialization_2005, huang_mining_2005, von_krogh_community_2003}. Given the
 distributed nature of FLOSS development, our findings contribute to current
 descriptions of virtual work and distributed teams.
 %TODO new members
@@ -197,7 +196,7 @@ help~\cite{vasilescu_how_2014}. By focusing on GitHub data, we contribute to
 understanding developer behavior on this new social platform.
 
 
-\subsection{Communities of Practice} \label{sec:communities}
+\subsubsection{Communities of Practice} \label{sec:communities}
 Our study focuses on the behavior of new code contributors and community
 response to their contributions. We use the theoretical framework of
 \textit{legitimate peripheral participation} (LPP) ~\cite{lave_situated_1991} in
@@ -229,7 +228,7 @@ Section~\ref{sec:datacollection} is based on this theoretical framework.
 Data was collected using the GitHub API.\footnote{http://developer.github.com/}
 We used a collection of node.js scripts to collect data from the API to store in
 a MySQL database.\footnote{These scripts are available at
-http://www.github.com/matthewheston/gh-collector.} In selecting which
+[removed for blind review]} In selecting which
 repositories to use for our analysis, we started with the top 100 most starred
 repositories on GitHub. We started with this list with the assumption that they
 were popular repositories that would be maintained by an active community. From
@@ -266,10 +265,10 @@ communtiy response. Our research questions our presented in
 Table~\ref{tbl:research_questions}, along with a summary of the variables and
 methods we used.
 
-\begin{sidewaystable}[ht] \centering
+\begin{table*}[ht] \centering
 \caption{Summary of research questions and methods.}
 \label{tbl:research_questions}
-\begin{tabular}{ p{3in} p{3in} p{2in} }
+\begin{tabular}{ p{2.1in} p{2.1in} p{2.3in} }
 \hline\hline
 Research Question
 & Data                                  & Measure
@@ -292,7 +291,7 @@ vectors. Results are shown in
 Table~\ref{tbl:classifiers} \\
 \hline
 \end{tabular}
-\end{sidewaystable}
+\end{table*}
 
 \subsection{Community Engagement of Developer}
 To explore the process of legitimate peripheral participation discussed in
@@ -303,7 +302,7 @@ participate in. This variable is shown in the x-axis of
 Figure~\ref{fig:aprr_up}.
 
 \begin{figure}[p] \centering
-\includegraphics[scale=0.6]{figures/aprr_up_ggplot.png} \caption{User
+\includegraphics[scale=0.4]{figures/aprr_up_ggplot.png} \caption{User
 participation and attention a pull request recieves for all first pull
 requests.} \ \label{fig:aprr_up} \end{figure}
 
@@ -411,19 +410,19 @@ be used in different projects, and how the way they are used may change
 depending on the type of user submitting them.
 
 \begin{figure}[p] \centering
-\includegraphics[scale=0.6]{figures/aprr_up_repeaters_ggplot.png} \caption{User
+\includegraphics[scale=0.4]{figures/aprr_up_repeaters_ggplot.png} \caption{User
 participation and attention a pull request recieves variables for users who
 submit at least one other pull request in our data set.}
 \label{fig:aprr_up_repeaters} \end{figure}
 
 \begin{figure}[p] \centering
-\includegraphics[scale=0.6]{figures/aprr_up_repeaters_10_ggplot.png}
+\includegraphics[scale=0.4]{figures/aprr_up_repeaters_10_ggplot.png}
 \caption{User participation and attention a pull request recieves variables for
 users who submit at least 10 other pull requests in our data set.}
 \label{fig:aprr_up_repeaters_10} \end{figure}
 
 \begin{figure}[p] \centering
-\includegraphics[scale=0.6]{figures/commented_pullrequests_totals_ggplot.png}
+\includegraphics[scale=0.4]{figures/commented_pullrequests_totals_ggplot.png}
 \caption{Total number of pull requests commented on and total number of pull
 requests submitted for each user.} \label{fig:commented_pullrequests_totals}
 \end{figure}
@@ -479,7 +478,7 @@ focus more on things like finding relevant issues to fix or features to work on
 rather than on social interactions.
 
 Many open source projects fail due to insufficient volunteer
-participation~\cite{crowston_defining_2003},~\cite{krishnamurthy_cave_2002}. It
+participation~\cite{crowston_defining_2003, krishnamurthy_cave_2002}. It
 is therefore important for project maintainers to continue to attract volunteer
 developers to keep a project alive. We found that 61\% of first pull requests
 in our data set come from users who will not submit any other pull requests.
@@ -490,7 +489,7 @@ regular active contributors.
 
 Our major finding in this study is that, despite previous FLOSS research which
 did indicate social patterns that follow legitimate peripheral participation
-framework~\cite{ducheneaut_socialization_2005},~\cite{huang_mining_2005},~\cite{ye_toward_2003},
+framework~\cite{ducheneaut_socialization_2005, huang_mining_2005, ye_toward_2003},
 we generally do not see this pattern in our GitHub data set. Although some
 developers do leave comments on other pull requests before submitting their own,
 the majority of developers do not, including those that will continue to submit
@@ -517,7 +516,7 @@ in the community. One difficulty in creating these types of data sets is
 identify merging, the process of matching different logins from different
 services to the same physical person, but a number of techniques have been
 proposed to assist in this
-process~\cite{bird_open_2007},~\cite{goeminne_comparison_2013},~\cite{kouters_whos_2012}.
+process~\cite{bird_open_2007, goeminne_comparison_2013, kouters_whos_2012}.
 
 It's also possible that looking at only social factors is not enough to
 understand what contributes to acceptance on GitHub. Static analysis tools may
@@ -537,26 +536,9 @@ a lot of work left to do in this area. Future quantitative studies should
 collect larger samples of data and explore new ways of measuring these types of
 social variables.
 
-\clearpage
-
-
-%
-% APPENDIX
-%
-
-% Do the settings of appendices with \appendix command
-\appendix
-
-% Then create each appendix using
-% \Appendix{title_of_appendix} command
 %
 % BIBLIOGRAPHY
 %
-% you have two options: 1) create bibliography manually,
-% 2) create bibliography automatically. See BibliographyHelp.pdf file for details.
-
-
-\bibliographystyle{plain}
+\bibliographystyle{acm-sigchi}
 \bibliography{Master}
-
-\end{document}  % end of document
+\end{document}
