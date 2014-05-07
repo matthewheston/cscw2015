@@ -46,7 +46,7 @@ breaklinks=true,
 
 \begin{document}
 
-\title{Community Engagement and Community Response of First Time Code Contributors on GitHub}
+\title{Community Engagement and Response to First Time Code Contributors on GitHub}
 
 \numberofauthors{2}
 \author{
@@ -82,56 +82,48 @@ request is accepted. Our findings differ from previous research on open source
 software communities and social theories of learning in communities of practice.
 \end{abstract}
 
-\section{INTRODUCTION}
+\section{Introduction}
 
-GitHub is a social website that open source software developers use to host
+As open source software continues to grow and more users become reliant on open
+source technologies, it is important to understand how this software is
+developed. Research of open source software can also contribute to existing
+research in a variety of other fields, including software engineering and computer
+supported cooperative work. This study examines how new users join these types of
+communities. Specifically, we examine the behavior of first time
+code contributors and the community response to their code contributions. We contribute to the literature on open source software and CSCW by providing evidence that the level of community engagement and response a user gives and receives does not influence whether his/her code contributions will be accepted. This finding indicates that OSS may not actually be communities of developers but rather ad hoc publics in which contributions are the only useful measure of engagement. [LH: NOT WHAT I MEAN, BUT WE NEED A CONTRIBUTION STATEMENT]    
+
+We examined how community engagement by a developer and community
+response to the developer affects whether or not a first time code contribution is accepted. We focus on code contributions because they mark the first time a user is
+attempting to participate in a core act of development. Code contributions can
+also be accepted or rejected, so our analysis allows us to see how
+social factors contribute to acceptance within the community.
+
+We studied projects hosted on GitHub, a social website that open source software developers use to host
 their software projects and to browse other developers' projects. It includes
 many features that are present on social networking sites, such as the ability
 to follow other users and leave comments on projects. GitHub provides a wealth
 of data for studying computer supported cooperative work, as it is a
 centralized location where many different tasks take place. For example, users
 can create bug reports, submit fixes, and engage in discussions about new
-features all on one website.
+features all in one place.
 
-As open source software continues to grow and more users become reliant on open
-source technologies, it is important to understand how this software is
-developed. Research of open source software can also contribute to existing
-research in a variety of other fields, including software engineering and computer
-supported cooperative work. In this study, we examine the behavior of first time
-code contributors and the community response to their code contributions. In
-Section~\ref{sec:relatedwork}, we discuss how previous studies in open source
-communities provide insight for existing literature on virtual teams and
-distributed work. This study examines how new users join these types of
-communities.
-
-We are interested in how community engagement by a developer and community
-response affects whether or not a first time code contribution is accepted or
-not. We focus on code contributions as this shows the first time a user is
-attempting to participate in a core act of development. Code contributions can
-also be accepted or rejected, so our analysis allows us to see how these
-social factors contribute to acceptance within the community.
-
-The rest of this paper is organized as follows. The rest of this chapter
-provides an overview of terminology specific to GitHub that will be used
-throughout the paper, as well as  a literature review on research of communities
+The rest of this paper is organized as follows. First, we provide an overview of GitHub terminology and a literature review on research of communities
 of practice and open source, establishing the importance of studying open source
 software development, situating it within a context of virtual work and computer
-mediated communication, and reviewing a theoretical basis we use to inform our
-empirical methods. Chapter~\ref{chap:methods} describes our data collection and
-data analysis methods. The results of our experiments are discussed in
-Chapter~\ref{chap:results}. Our results differ from previous research in this
-area. In Chapter \ref{chap:conclusion} we situate our findings in relation to
-prior research and identify areas for future work.
+mediated communication, and reviewing a theoretical framework we use to inform our
+empirical methods. We then describe our data collection and analysis methods. The discussion of our results and how they differ from previous research in this
+area follow. We finish by situating our findings in relation to
+prior research and identifying areas for future work.
 
 
 \subsection{Terminology} \label{sec:terms}
 
 A software project on the website is referred to as a \textit{repository}. Any
 user on GitHub can \textit{star} a repository. Users star repositories to be
-able to easily navigate to them and to receieve updates on activity from the
+able to easily navigate to them and to receive updates on activity from the
 repositories. A repository can be private, meaning that it is only visible to
 the owner and anyone the owner grants access to, or public, meaning that anyone
-can view it. Our study focuses on public repositories. If a developer wants to
+can view it. Our study focuses on public repositories. Many repositories use \textit{issues} to organize workflow around bugs, features, enhancements, and other code developments. Issues can be labeled, assigned to developers, and associated with milestones. They can also be commented on and connected with commits (e.g., associated with the commit that fixes a bug). Issues are also marked `open' or `closed'. If a developer wants to
 contribute to another one of developer's repositories, he can \textit{fork} the
 repository, which creates a copy of the project for him to work on. As the
 developer makes changes to this code, he \textit{commits} his changes. A
@@ -145,7 +137,6 @@ repository wants to incorporate the changes the developer made, he can
 \textit{merge} them into the repository. A pull request can be closed without
 being merged, which means that the changes the developer made were not accepted.
 
-
 \subsection{Related Work} \label{sec:relatedwork}
 
 \subsubsection{FLOSS Research}
@@ -157,7 +148,7 @@ contributing to projects, and many FLOSS projects becoming integral parts of the
 infrastructure of modern society. Other studies have emphasized the role that
 FLOSS research can play in improving current existing research of software
 engineering, particularly as the importance of understanding large scale
-software systems in science and insustry increases
+software systems in science and industry increases
 ~\cite{scacchi_free/open_2007}.
 
 Existing research approaches FLOSS from many different angles, including
@@ -185,7 +176,7 @@ Goggins~\cite{mcdonald_performance_2013} studed how different communities on
 GitHub measure success, finding that most developers measure success in the
 number of contributors and contributor growth. They also found that developers
 believed the GitHub interface, in particular the use of pull requests, made
-communities more democratic and transpartent. Choi et
+communities more democratic and transparent. Choi et
 al.~\cite{choi_herding_2013} studied a sample of GitHub based projects to
 contribute to theories of developer coordination, finding that commits tend to
 happen in clustered events over time. In all these cases, the social features of
@@ -352,7 +343,7 @@ This leaves 5,674 pull requests. Of these, 3,811, approximately 67\%, were not
 accepted. We treat the remaining comments associated with the pull request as
 one document, and convert them into feature vectors representing the count of
 each unigram and bigram in the documents, and train both a logistic regression
-and naive bayes classifier using this feature set. The results of testing these
+and naive Bayes classifier using this feature set. The results of testing these
 classifiers is shown in Table~\ref{tbl:classifiers}. The results shown are the
 result of running 10-fold cross validation.
 
@@ -499,7 +490,7 @@ it will & 0.656 & closing     & -0.605 \\
 In this study, we analyzed community engagement and community response of first
 time code contributors on GitHub. We found that most developers do not engage by
 participating in discussions on GitHub before submitting code changes. We also
-fou dthat most submitted pull requests do not attract much community response,
+found that most submitted pull requests do not attract much community response,
 and our attempts at measuring community response did not provide good predictors
 for whether or not a pull request is accepted. Our findings have implications
 for researchers, open source contributors, and open source project maintainers.
@@ -624,7 +615,7 @@ contributing code, as well as how community response to these code contributions
 predicts whether or not they are accepted. We found that most users do not
 participate in other social GitHub features before submitting code.  In
 attempting to measure community response, we found that most code contributions
-do not receive much communtiy response, and that both the raw amount of comments
+do not receive much community response, and that both the raw amount of comments
 on a GitHub pull request as well as the language in those comments were not good
 predictors of whether or not the pull request is accepted.
 
