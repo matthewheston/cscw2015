@@ -273,10 +273,10 @@ methods we used.
 Research Question
 & Data                                  & Measure
 \\
-How does a user engage before submitting their first pull request?
-& Comments on other pull requests.      & We plot the total number
-of pull requests a user has commented in
-Figure~\ref{fig:up_density}.
+How does a user engage before submitting their first pull request?  &
+Comments on other pull requests/issues, issues opened.      & We plot the total
+number of pull requests and issues a user has commented on and number of issues
+opened in Figure~\ref{fig:up_density}.
 \\
 Does community response affect whether or not a pull request is
 merged? & Number of comments on pull request.   & We plot the
@@ -294,18 +294,16 @@ Table~\ref{tbl:classifiers} \\
 \end{table*}
 
 \subsection{Developer's Engagement}
-To explore the process of legitimate peripheral participation, we count the
-total number of pull requests a developer commented on before submitting his own
-pull request. As discussed in Section~\ref{sec:communities}, we consider
-commenting on other pull requests the primary peripheral activity a user can
-participate in. Previous studies indicate that users participate in technical
-discussions before submitting code~\cite{von_krogh_community_2003}. Pull
-requests allow users to comment on new features or other changes to the code
-base. Although there are other peripheral activities a user may engage in on the
-site, for example, making updates to a project wiki, not all projects use these
-other features offered by GitHub. Pull requests are used by all the repositories
-in our data set, so we examine only those comments to quantify participation by
-a user. This variable is shown in Figure~\ref{fig:up}.
+To explore the process of legitimate peripheral participation, we use three
+variables. We count the
+total number of pull requests a developer commented on, submitting his own
+pull request, the total number of issues a developer commented on, and the total
+number of issues opened by the developer before submitting their own pull
+request. Not all repositories in our data set use GitHub issues, so for those
+repositories, we only consider the number of previous pull requests a developer
+commented on. Previous studies indicate that users participate in technical
+discussions before submitting code~\cite{von_krogh_community_2003}. We sum these
+three variables together and plot the it in Figure~\ref{fig:up}.
 
 \begin{figure}[p] \centering
 \includegraphics[scale=0.6]{figures/number_comments_density_ggplot.png}
