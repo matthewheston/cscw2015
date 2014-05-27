@@ -340,10 +340,11 @@ accepted. We ignore pull requests that only have one comment associated with it.
 This leaves 5,674 pull requests. Of these, 3,811, approximately 67\%, were not
 accepted. We treat the remaining comments associated with the pull request as
 one document, and convert them into feature vectors representing the count of
-each unigram and bigram in the documents, and train both a logistic regression
-and naive Bayes classifier using this feature set. The results of testing these
-classifiers is shown in Table~\ref{tbl:classifiers}. The results shown are the
-result of running 10-fold cross validation.
+each unigram and bigram in the documents, after using a word list to remove stop
+words. We then  train both a logistic regression and naive Bayes classifier
+using this feature set. The results of testing these classifiers is shown in
+Table~\ref{tbl:classifiers}. The results shown are the result of running 10-fold
+cross validation.
 
 \begin{table}[ht] \centering
   \caption{Classifier results}
@@ -351,9 +352,9 @@ result of running 10-fold cross validation.
   \begin{tabular}{lll}
   \hline\hline
   ~         & Logistic Regression & Naive Bayes \\
-  Accuracy  & 69.6\%              & 70.6\%      \\
-  Precision & 56.0\%              & 60.3\%      \\
-  Recall    & 36.1\%              & 30.7\%      \\
+  Accuracy  & 69.6\%              & 70.4\%      \\
+  Precision & 56.3\%              & 56.3\%      \\
+  Recall    & 33.7\%              & 44.4\%      \\
   \hline
   \end{tabular}
 \end{table}
@@ -456,11 +457,11 @@ describe the action being taken, we still see these in our top features. Both
 "land" and "landed" are used in some repositories when a commit is merged, but
 not through the GitHub interface to indicate the git commit hash where the pull
 request commits were merged. We also see "closing" in the negative class, which
-shows explicit action being taken. Some of our top features do seem fitting. The
-phrase "lgtm" which stands for "looks good to me" seems indicative of positive
-feedback from the community. Other examples, however, seem to indicate
-overfitting, which we see in the top feature for the negative class, the word
-"the."
+shows explicit action being taken. Some of the larger projects also skew our
+results, as we see project names appear as the highest ranking features of the
+negative class. Some of our top features do seem fitting. The phrase "lgtm"
+which stands for "looks good to me" seems indicative of positive feedback from
+the community.
 
 Our sample size of 5,674 is relatively small, but it is interesting to note that
 only 42\% of the first pull requests in our data set have more than 1 comment
@@ -474,11 +475,11 @@ we see that the majority of pull requests don't attract any community attention.
 \begin{tabular}{ll|ll}
 \hline\hline
 Merged  & ~     & Not merged  & ~      \\
-land    & 0.817 & the         & -0.734 \\
-landed  & 0.767 & bootstrap   & -0.711 \\
-fine    & 0.717 & good thanks & -0.682 \\
-lgtm    & 0.709 & in          & -0.682 \\
-it will & 0.656 & closing     & -0.605 \\
+land    & 0.981 & bootstrap & -0.780 \\
+landed  & 0.894 & spree   & -0.875 \\
+cla thanks    & 0.874 & closing & -0.641 \\
+fine    & 0.721 &  already & -0.600 \\
+lgtm    & 0.688 & maybe & -0.597 \\
 \hline
 \end{tabular}
 \end{table}
