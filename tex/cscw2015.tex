@@ -88,7 +88,7 @@ As Free/Libre and Open Source Software (FLOSS) continues to grow and more users 
 source technologies, it is important to understand how this software is
 developed. Research of open source software can also contribute to existing
 research in a variety of other fields, including software engineering and CSCW. Recruiting and retaining project contributors is crucial to the success of open source 
-projects, and this study examines the relationships among community engagement, community response, and whether or not code contributions are accepted. 
+projects, and this study examines the relationships among community engagement, community response, and whether or not code contributions are accepted. Much of the existing FLOSS research that focuses on individual developers discusses motivations for contributing~\cite{hann_economic_2002, krishnamurthy_intrinsic_2006}. We, instead, focus on what happens immediately before and after an individual actually contributes. Early success is a strong indicator of future engagement, and our study helps us understand how a developer's social interactions and a community's response influence whether a developer will experience early success. As von Krogh points out, much of the work of socialization falls to the newcomer~\cite{von_krogh_community_2003}, and we examine the social work newcomers do in order to understand how their behavior influences whether or not their material contributions will be accepted.
 
 Specifically, we examine the behavior of first time
 code contributors and the community response to their code contributions. We focus on code contributions because they mark the first time a user is
@@ -155,27 +155,22 @@ developers~\cite{fang_understanding_2009, lakhani_why_2003, shah_motivation_2006
 omahony_governance_2007};
 and knowledge sharing within FLOSS
 communities~\cite{endres_tacit_2007, hemetsberger_collective_2009, sowe_understanding_2008}.
-Our study focuses on the behavior of first time contributors to FLOSS projects
-and community response to their contributions. We build on previous studies that
+Our study focuses on the behavior of first-time contributors to FLOSS projects
+and how the community responds to their contributions. We build on previous studies that
 describe the social processes of community
 joining~\cite{ducheneaut_socialization_2005, huang_mining_2005, von_krogh_community_2003}. Given the
 distributed nature of FLOSS development, our findings potentially contribute to our understanding of virtual work and distributed teams more broadly as well.
 
-Previous studies have used version control histories to verify learning
-processes of new members in FLOSS projects~\cite{huang_mining_2005}. 
-
 GitHub is a relatively new social FLOSS platform and has not been extensively studied. CSCW researchers provide some notable exceptions, however.
-Dabbish et al.~\cite{dabbish_social_2012} studied how GitHub as a
-social application provides transparency and how that transparency affects
-collaboration and learning. They found that this transparency leads to
+Dabbish et al.~\cite{dabbish_social_2012} found that the transparency GitHub provides leads to
 inferences around commitment, work quality, community significance and personal
 relevance, which supports collaboration and learning. McDonald and
-Goggins~\cite{mcdonald_performance_2013} studed how different communities on
-GitHub measure success, finding that most developers measure success in the
+Goggins~\cite{mcdonald_performance_2013} studied how different communities on
+GitHub measure success and found that most developers measure success in the
 number of contributors and contributor growth. They also found that developers
 believed the GitHub interface, in particular the use of pull requests, made
 communities more democratic and transparent. Choi et
-al.~\cite{choi_herding_2013} studied a sample of GitHub based projects to
+al.~\cite{choi_herding_2013} leveraged data from a sample of GitHub projects to
 contribute to theories of developer coordination, finding that commits tend to
 happen in clustered events over time. In all these cases, the social features of
 GitHub, e.g. the ability to follow other users and view information about them,
@@ -183,45 +178,38 @@ provide new ways to study social behavior in FLOSS projects. Our study
 investigates members' participation in group discussions on the site. While
 previous studies have tried to combine data from mailing lists and version
 control~\cite{ducheneaut_socialization_2005}, GitHub provides a centralized
-location to study communities in which discussion and code contribution all
+location to study communities in which discussions and code contributions
 occur in one place. At least with regards to user support, recent research
 suggests that developers may be moving away from mailing lists to social Q\&A
 sites to respond to user requests for help~\cite{vasilescu_how_2014}. By
 focusing on GitHub data, we contribute to understanding developer behavior on
 this new social platform.
 
-
-\subsection{Communities of Practice} \label{sec:communities}
+\subsection{Socialization and Joining Professional Communities} \label{sec:communities}
 Our study focuses on the behavior of new code contributors and community
 response to their contributions. We use the theoretical framework of
 \textit{legitimate peripheral participation} (LPP) ~\cite{lave_situated_1991} in
 our exploration community joining. LPP describes a process of learning in
 communities of practice in which newcomers join a community by participating in
 peripheral tasks and forming relationships to move towards the center of the
-community. Several studies of FLOSS development have used the LPP framework.
-Huang and Liu~\cite{huang_mining_2005} mined version control history to
-construct developer networks and identify core and peripheral community members.
-Ducheneaut~\cite{ducheneaut_socialization_2005} found a pattern that resembles
-LPP in his study of contributors to the Python project. Ye and
-Kishida~\cite{ye_toward_2003} used LPP to ground their theory of motivation in
-open source communities. This concept has been explored in other studies of
-computer mediated communication.  In their study on members of Wikipedia, Bryant
-et al. ~\cite{bryant_becoming_2005} note that members initially become involved
-through peripheral activities. These are simple and low risk activities members
+community. LPP and communities of practice are also often leveraged in other studies of
+computer mediated communication. For example, Bryant
+and colleagues ~\cite{bryant_becoming_2005} note that members of Wikipedia initially become involved
+through peripheral activities -- simple and low risk activities members
 can take part in to learn more about the community before trying to become major
-contributors. Similarly, von Krogh et. al ~\cite{von_krogh_community_2003} from
-observing open source communities generated the construct of a \textit{joining
-script}, where each project has a set of tasks for new developers to go through
-before being accepted into the community.  The data we collect in
-Section~\ref{sec:datacollection} is based on this theoretical framework. We
-consider making code changes and submitting a pull request to be a core
-activity, and commenting on other pull requests to be the primary peripheral
-activity a user can participate in on GitHub. This follows previous studies that
-find most users participate in community discussions prior to submitting
-code~\cite{ducheneaut_socialization_2005, von_krogh_community_2003}.
+contributors.
+
+Several studies of FLOSS development have used the LPP framework, e.g., to 
+ identify core and peripheral community members~\cite{huang_mining_2005}, to understand motivation in FLOSS communities~\cite{ye_toward_2003}, and to develop the concept of a \textit{joining
+script}~\cite{von_krogh_community_2003}. A \textit{joining
+script} is a set of tasks for new developers to go through
+before being accepted into the community~\cite{von_krogh_community_2003}.
+Similarly, Ducheneaut~\cite{ducheneaut_socialization_2005} found a pattern that resembles
+LPP in his study of contributors to the Python project. 
+
+GitHub's tools (e.g., issues) enable potential developers to observe both the code and social conventions of a community before joining. Those tools also enable us to collect data to examine a number of legitimate peripheral activities in FLOSS development. For instance, opening and commenting on  issues, submitting and commenting on pull requests are all low risk activities new developers can engaged in via GitHub. Existing members can also provide feedback about issues, comments, and code submitted through the site. Prior research relied on version control histories~\cite{huang_mining_2005} and/or mailing list data~\cite{ducheneaut_socialization_2005, von_krogh_community_2003} to understand social and development activities, and using GitHub data allows us to explicitly connect social and code contributions and to examine their relationships.
 
 \section{Methods} \label{chap:methods}
-
 
 \subsection{Data Collection} \label{sec:datacollection}
 
@@ -260,8 +248,8 @@ the GitHub API as well as these text patterns results in finding 5,239, or
 
 \subsection{Data Analysis} \label{sec:data_analysis}
 
-We divide our analysis into two dimensions: community engagement of developer and
-community response. Our research questions our presented in
+We divide our analysis into two dimensions: developer's engagement in the community and
+community's response to the developer's contributions. Our research questions our presented in
 Table~\ref{tbl:research_questions}, along with a summary of the variables and
 methods we used.
 
@@ -315,7 +303,7 @@ three variables together and plot the it in Figure~\ref{fig:up}.
 \caption{Attention pull request receives density plots.}  \label{fig:aprr}
 \end{figure}
 
-\subsection{Community Response}
+\subsection{Community's Response}
 In addition to measuring the activity of a developer in the community before
 submitting a pull request, we are also interested in measuring the community
 response to a given pull request and how that response relates to whether or not
@@ -361,6 +349,8 @@ cross validation.
 
 \subsection{Developer's Engagement} \label{results_engagement}
 
+\subsubsection{Pull Requests}
+
 We see that user participation for the majority of all first pull requests, both
 merged and not merged, is 0. This indicates that in general, most users are not
 attempting to engage in the peripheral activity of commenting on other pull
@@ -393,7 +383,7 @@ gives us a total of 1,155 observations.
 
 It is clear that in all these cases, regardless of whether or not they will be
 continuing to submit other pull requests later, at the time of submitting their
-first pull request, users are generally not participating in the community. The
+first pull request, users are generally \textit{not} participating socially in the community. The
 previous graphs only consider the number of pull requests a user commented on
 before submitting their first pull request, so we do not capture how users who
 submit multiple pull request over time comment on other pull requests over time.
@@ -404,18 +394,15 @@ pull requests. There is not a strong correlation between these variables
 (Spearman's $\rho$  = 0.44), indicating that users do not necessarily
 participate in more commenting as they continue to submit more pull requests.
 
-It's worth noting the one extreme outlier present in our data. One user
-submitted pull request received 200 comments and was submitted by a user who had
+It's worth noting the one extreme outlier present in our data. One user-submitted pull request received 200 comments and was submitted by a user who had
 commented on 900 previous pull requests. This is an interesting case of a
 project maintainer, who has commit access and wouldn't typically need to submit
 a pull request to submit changes, creating a pull request for commits related to
 a major upgrade in the project. By creating a pull request, he was able to
 document all the changes associated with this change and allow community members
 to ask questions or comment on the changes. He has a high number of previous
-comments since he is in charge of accepting pull requests. Due to the nature of
-this pull request, there is a high number of comments on this pull requests on
-it, since many other developers are asking questions or voicing their opinions.
-This is a useful example that demonstrates the different ways pull requests may
+comments since he is in charge of accepting pull requests and often posts a comment such as, ``Accepted" when accepting a pull request. This outlier likely received so many comments because many other developers were asking questions or voicing their opinions.
+This example demonstrates the different ways pull requests may
 be used in different projects, and how the way they are used may change
 depending on the type of user submitting them.
 
@@ -435,6 +422,8 @@ other pull requests in our data set.}
 \caption{Total number of pull requests commented on and total number of pull
 requests submitted for each user.} \label{fig:commented_pullrequests_totals}
 \end{figure}
+
+\subsubsection{Issues}
 
 \subsection{Community's Response}
 In Figure~\ref{fig:up}, we see more variance in the number of comments on
@@ -549,13 +538,10 @@ request is merged, further studies should create joint data sets merging GitHub
 data with data from other sources, such as mailing lists, forums, or chat rooms
 to test whether or not developers engage with the community using these other
 platforms, and how those social interactions affect their acceptance in the
-community. One difficulty in creating these types of data sets is identify
+community. Though GitHub is designed to house all of a project's information, many projects still use other channels for discussion that aren't included in our data. One difficulty in creating these types of data sets is identify
 merging, the process of matching different logins from different services to the
 same physical person, but a number of techniques have been proposed to assist in
 this process~\cite{bird_open_2007, goeminne_comparison_2013, kouters_whos_2012}.
-We also focused only used pull request comments to measure community engagement
-by a developer. Other GitHub features, such as issues and wikis, provide other
-ways to participate in a repository that we did not cover.
 
 It is also important to note that the GitHub platform is used in different ways
 across projects. As described in Section~\ref{sec:datacollection}, there was
@@ -564,17 +550,17 @@ project maintainer accepts the pull request, e.g. through the GitHub interface
 or not. In Section~\ref{results_engagement}, we discuss an outlier in our data
 where a user who did not typically contribute code through the pull request
 mechanism did use this feature in order to allow community feedback and
-questions. There are many other examples in differences in use of the GitHub
+questions. There are many other examples of differences in use of the GitHub
 platform. Some projects, for example, may require all developers to submit pull
 requests for the purposes of code review, while others may grant commit access
-to certain developers that allows them to bypass the pull request mechanism.
+to certain developers, allowing them to bypass the pull request mechanism altogether.
 Although we did account for differences in accepting pull requests, there may be
 other nuances across projects that affect the data we collected that are harder
 to detect when working with data at scale.
 
 \subsection{Future Work} \label{sec:future_work}
 
-In examining community engagement and community response, our study was
+In examining developer engagement and community response, our study was
 primarily concerned with social factors within open source software development
 communities. It's possible that looking at only social factors is not enough to
 understand what contributes to acceptance on GitHub. Static analysis tools may
@@ -583,7 +569,7 @@ the code itself affects whether or not a pull request is accepted.
 
 In studying how communities respond to pull requests, we found in most cases, there was little
 community response. As mentioned above, attraction of new developers and
-retention of developers is important to project success. Future work should how
+retention of developers is important to project success. Future work should explore how
 community response can affect developer retention in GitHub projects.
 
 In examining the top features for the classifiers we trained in studying
@@ -592,29 +578,23 @@ collected was to avoid words that explicitly described action being taken. We
 still found examples of these types of words in both our positive and negative
 classes. In the case of the positive (merged) class, the top feature was
 "land." This feature affects classifier performance since this word is used
-often in positive cases, but only in a few repositories. Future work studying
-linguistic features in this way should account for these types of project
-specific vocabularies.
+often in positive cases, but only in a few repositories. Similarly, project titles were often predictive of acceptance but those terms are not useful for predicting acceptance across projects. Future work studying
+linguistic features in this way should account for these types of project-specific vocabularies.
 
 Finally, to better understand the way that the GitHub interface affects
 developer behavior will require further qualitative study. While there have been
 surveys of GitHub developers previously~\cite{mcdonald_performance_2013}, there
-remains a lot of work left to do in this area. Future quantitative studies
-should collect larger samples of data and explore new ways of measuring these
-types of social variables.
+remains a lot of work left to do in this area. The traces of behavior visible in GitHub data tell us only part of the story.
 
 \section{Conclusion}
 
-In this study, we measured community engagement and community response of first
-time code contributors to GitHub. Using data from the pull request feature of
-GitHub, we studied how developers engage open source communities before
-contributing code, as well as how community response to these code contributions
-predicts whether or not they are accepted. We found that most users do not
-participate in other social GitHub features before submitting code.  In
+In this study, we measured developer engagement and community response of first
+time code contributors to GitHub and tried to predict whether code contributions would be accepted based on that data. We found that most users do not
+participate in social GitHub features before submitting code.  In
 attempting to measure community response, we found that most code contributions
 do not receive much community response, and that both the raw amount of comments
 on a GitHub pull request as well as the language in those comments were not good
-predictors of whether or not the pull request is accepted.
+predictors of whether or not the pull request is accepted. These findings suggest that social interaction is not a necessary component of successful FLOSS projects.
 
 %
 % BIBLIOGRAPHY
