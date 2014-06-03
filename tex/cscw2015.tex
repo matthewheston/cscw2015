@@ -10,7 +10,8 @@
 % llt: Define a global style for URLs, rather that the default one
 \makeatletter
 \def\url@leostyle{%
-  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\bf\ttfamily}}}
+  
+\@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\bf\ttfamily}}}
 \makeatother
 \urlstyle{leo}
 % To make various LaTeX processors do the right thing with page size.
@@ -46,7 +47,8 @@ breaklinks=true,
 
 \begin{document}
 
-\title{Community Engagement and Response to First Time Code Contributors on GitHub}
+\title{Community Engagement and Response to First Time Code Contributors on 
+GitHub}
 
 \numberofauthors{2}
 \author{
@@ -68,7 +70,8 @@ breaklinks=true,
 	open source; online communities; software development
 }
 
-\category{K.6.3.}{Management of Computing and Information Systems}{Software Management}
+\category{K.6.3.}{Management of Computing and Information Systems}{Software 
+Management}
 
 %%% Abstract %%%
 \begin{abstract}           % abstract environment, this is optional
@@ -350,6 +353,50 @@ cross validation.
 \end{table}
 
 \section{Results} \label{chap:results}
+Table~\ref{t/l:logit_reg} summarizes the results of our logistic regressions 
+using developer and community behaviors to predict whether pull requests are 
+merged. Overall, we found that participating in technical discussions through 
+pull request comments and issue comments made statistically significant 
+difference on whether or not a pull request was merged, but the difference was 
+so small as to be practically meaningless. We discuss the results of these 
+regressions in detail and provide additional descriptive statistics below.
+
+\begin{table*}[ht]
+\centering
+\begin{tabular}{lllllll}
+\textbf{Predictor} & \textbf{Model 1} & \textbf{Model 2} & \textbf{Model 3} & 
+\textbf{Model 4} & \textbf{Model 5} & \textbf{Model 6} \\ \hline
+\multicolumn{7}{l}{Developer} \\
+\-\hspace{1em}Reputation &  & 7.82e-5** & 8.17e-5** &  & 8.05e-5** & 7.98e-5* \\
+ &  & 3.03e-5 & 3.06e-5 &  & 3.08e-5 & 3.16e-5 \\
+ &  &  & 1.00 &  &  & 1.00 \\
+\-\hspace{1em}Pull Request Comments & 0.014** & 0.001* & 0.013** &  &  & 0.014* 
+\\
+ & 0.005 & 0.0005 & 0.004 &  &  & 0.006 \\
+ &  &  & 1.01 &  &  & 1.01 \\
+\-\hspace{1em}Issue Comments &  &  &  & 0.001 & 8.12e-4 & -9.57e-4 \\
+ &  &  &  & 0.001 & 8.14e-4 & 0.001 \\
+ &  &  &  &  &  & 1.00 \\
+\-\hspace{1em}Issues Opened &  &  &  & 0.016 & 0.016 & 0.016* \\
+ &  &  &  & 0.008 & 0.008 & 0.008 \\
+ &  &  &  &  &  & 1.02 \\
+\multicolumn{7}{l}{Community} \\
+\-\hspace{1em}Pull Request Comments &  &  & -0.030*** &  &  & -0.030*** \\
+ &  &  & 0.004 &  &  & 0.004 \\
+ &  &  & 0.97 &  &  & 0.97 \\
+Constant & -0.446*** & -0.453*** & -0.364*** & -0.453*** & -0.459*** & 
+-0.037*** \\
+ & 0.018 & 0.018 & 0.022 & 0.018 & 0.018 & 0.022 \\ \hline
+\multicolumn{7}{p{40em}}{\textit{Note: We report the coefficient and standard 
+error for each predictor in each model. In the best fit models (3 and 6), we 
+also report the odds ratios. Predictors' significance are indicated with 
+asterisk where *, **, *** represent p \textless 0.1, p \textless 0.05, p 
+\textless 0.001, respectively.}}
+\end{tabular}
+\caption{Logistic Regression Results: Predicting whether a pull request will be 
+merged}  
+\label{tab:logit_reg}
+\end{table*} 
 
 \subsection{Developer's Engagement} \label{results_engagement}
 
@@ -415,12 +462,14 @@ ways pull requests may be used in different projects, and how the way they are
 used may change depending on the type of user submitting them.
 
 \begin{figure}[p] \centering
-\includegraphics[scale=0.6]{figures/number_comments_density_repeaters_ggplot.png}
+\includegraphics[scale=0.6]{figures/number_comments_density_repeaters_ggplot.png
+}
 \caption{User participation density plots for users who submit at least one
 other pull request in our data set.} \label{fig:repeaters} \end{figure}
 
 \begin{figure}[p] \centering
-\includegraphics[scale=0.6]{figures/number_comments_density_repeaters_10_ggplot.png}
+\includegraphics[scale=0.6]{figures/number_comments_density_repeaters_10_ggplot.
+png}
 \caption{User participation density plots for users who submit at least ten
 other pull requests in our data set.} \label{fig:repeaters_10} \end{figure}
 
@@ -432,37 +481,6 @@ requests submitted for each user.} \label{fig:commented_pullrequests_totals}
 
 \subsubsection{Issues}
 
-Table~\ref{tbl:variables} summarizes the variables we used.
-
-\begin{table*}[ht]
-\centering
-\begin{tabular}{p{10em} r @{.} l  r @{.} l }
-\hline
-\textbf{Predictor} & \multicolumn{2}{c}{\textbf{Model 1}} & \multicolumn{2}{c}{\textbf{Model 2}}\\ \hline
-\multicolumn{5}{l}{Developer Engagement}\\
- \-\hspace{1em}Pull request comments & -0&16 & -1&26*** \\
- & 0&15 & -0&20 \\
-\-\hspace{1em}Issue comments & -0&16 & -1&26*** \\
- & 0&15 & -0&20 \\
-\-\hspace{1em}Issues opened & -0&16 & -1&26*** \\
- & 0&15 & -0&20 \\ \hline
-\multicolumn{5}{l}{Community Response}\\
- \-\hspace{1em}Pull request comments & -0&16 & -1&26*** \\
- & 0&15 & -0&20 \\ \hline
-\multicolumn{5}{l}{Controls}\\
- \-\hspace{1em}Dev reputation & -0&16 & -1&26*** \\
- & 0&15 & -0&20 \\
- \-\hspace{1em}Repo changes & -0&16 & -1&26*** \\
- & 0&15 & -0&20 \\
- \-\hspace{1em}Repo contributors & -0&16 & -1&26*** \\
- & 0&15 & -0&20 \\ \hline
-\multicolumn{5}{p{20em}}{\textit{Note: Predictors' significance are indicated with asterisk
-where *, **, *** represent p \textless 0.1, p \textless 0.05, p \textless 0.001, respectively.}} \\
-\hline
-\end{tabular}
-\caption{Logistic Regression Results: Predicting whether a pull request will be merged}  
-\label{tab:logit_reg}
-\end{table*} 
 
 \subsection{Community's Response} In Figure~\ref{fig:up}, we see more variance
 in the number of comments on first pull requests than we did with the number of
