@@ -1,13 +1,62 @@
-library("RMySQL")
+library(logistf)
+# library("RMySQL")
+# 
+# con <- dbConnect(MySQL(),
+#     user="", password="",
+#     dbname="", host="")
+# on.exit(dbDisconnect(con))
+# 
+# feature_set <- dbGetQuery(con, "SELECT * FROM feature_set")
+feature_set <- read.csv('cscw_features.csv')
 
-con <- dbConnect(MySQL(),
-    user="", password="",
-    dbname="", host="")
-on.exit(dbDisconnect(con))
+# PREDICT MERGES USING PULL REQUEST DATA
+pr_logit.1 <- glm(merged ~ pr_comments_user, data=feature_set, family="binomial")
+summary(pr_logit.1)
+pr_logit.2 <- update(pr_logit.1, .~. + reputation)
+summary(pr_logit.2)
+# including changes_on_pr produces separation, so I'm leaving it out for now
+# pr_logit.3 <- update(pr_logit.2, .~. + changes_on_pr)
+# summary(pr_logit.3)
+pr_logit.4 <- update(pr_logit.2, .~. + pr_comments_other)
+summary(pr_logit.4)
 
-feature_set <- dbGetQuery(con, "SELECT * FROM feature_set")
+# see if our model actually improved
+anova(pr_logit.2,pr_logit.4, test="Chisq") 
 
-mylogit <- glm(merged ~ user_activity + reputation + comments_on_pr, data=feature_set, family="binomial")
+# get odds-ratios for predictors in best model
+exp(cbind(OR = coef(pr_logit.4), confint(pr_logit.4)))
 
-# print results of logit
-summary(mylogit)
+# PREDICT MERGES USING ISSUE DATA
+i_logit.1 <- glm(merged ~ issue_comments, data=feature_set, family="binomial")
+summary(i_logit.1)
+i_logit.2 <- update(i_logit.1, .~. + issue_comments + issues_opened)
+summary(i_logit.2)
+
+# see if our model actually improved
+anova(i_logit.1,i_logit.2, test="Chisq") 
+
+# get odds-ratios for predictors in best model
+exp(cbind(OR = coef(i_logit.2), confint(i_logit.2)))
+
+# PREDICT MERGES USING ALL THE DATA WE HAVE
+big_logit.1 <- glm(merged ~ pr_comments_user + issue_comments, data=feature_set, family="binomial")
+summary(big_logit.1)
+
+# big_logit.1 shows linear separation, so switch to Firth
+big_logit.2 <- logistf(merged ~ pr_comments_user + issue_comments, data=feature_set)
+summary(big_logit.2)
+# ggplot(data=feature_set, aes(x=pr_comments_user, y=merged)) + 
+#   geom_line(aes(x=issue_comments, y=merged)) +
+#   geom_point() +
+#   stat_smooth(method="glm", family="binomial", se=FALSE)
+# ggplot(data=feature_set, aes(x=issue_comments, y=merged)) + 
+#   geom_point() +
+#   stat_smooth(method="glm", family="binomial", se=FALSE)
+
+big_logit.3 <- update(big_logit.2, .~. + pr_comments_other)
+summary(big_logit.3)
+big_logit.4 <- update(big_logit.3, .~. + repo_commits, repo_contributors)
+summary(big_logit.4)
+# full_logit <- glm(merged ~ pr_comments_user + issue_comments + issues_opened + changes_on_pr + pr_comments_other + repo_commits + repo_contributors, data=feature_set, family="binomial")
+# step_logit <- step(full_logit)
+# summary(step_logit)
