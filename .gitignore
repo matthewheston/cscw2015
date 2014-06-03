@@ -20,4 +20,7 @@
 *.mtc
 *.mtc1
 *.out
+*.fdb_latexmk
+*.fls
+.DS_Store
 *.synctex.gz
