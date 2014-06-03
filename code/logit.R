@@ -35,11 +35,15 @@ exp(cbind(OR = coef(pr_logit.4), confint(pr_logit.4)))
 # PREDICT MERGES USING ISSUE DATA
 i_logit.1 <- glm(merged ~ issue_comments, data=feature_set, family="binomial")
 summary(i_logit.1)
-i_logit.2 <- update(i_logit.1, .~. + issue_comments + issues_opened)
+i_logit.2 <- update(i_logit.1, .~. + issues_opened)
 summary(i_logit.2)
+i_logit.3 <- update(i_logit.2, .~. + reputation)
+summary(i_logit.3)
 
 # see if our model actually improved
 anova(i_logit.1,i_logit.2, test="Chisq") 
+anova(i_logit.2,i_logit.3, test="Chisq") 
+
 
 # get odds-ratios for predictors in best model
 exp(cbind(OR = coef(i_logit.2), confint(i_logit.2)))
@@ -62,6 +66,9 @@ summary(big_logit.3)
 
 # check for improvement - controls don't improve this model either
 anova(big_logit.2, big_logit.3, test="Chisq")
+
+# get odds-ratios for predictors in best model
+exp(cbind(OR = coef(big_logit.2), confint(big_logit.2)))
 
 # check for improvement over PR and I models
 anova(big_logit.2, pr_logit.4, test="Chisq")
