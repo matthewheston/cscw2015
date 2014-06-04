@@ -246,6 +246,19 @@ understand social and development activities, and using GitHub data allows us to
 explicitly connect social and code contributions and to examine their
 relationships.
 
+In this study, we focus on behavior leading up to a developer's first pull
+request.  Previous studies have distinguished types of activity in FLOSS
+repositories and found there is a core group of developers who work on
+functionality while most members of the community contribute through
+participating in activities such as reporting bugs and technical
+discussions~\cite{dinh2005freebsd, mockus2002two}. Previous studies have also
+shown that developers who contribute code to the repository go through a
+socialization phase by participating in these peripheral activities and then
+moving towards the central group of primary
+developers~\cite{ducheneaut_socialization_2005, von_krogh_community_2003}. We
+study activity prior to the first pull request to understand this socialization
+process and how it affects community response to code contributions.
+
 Our study examines community response to a user's first pull request. Research
 on Wikipedia has shown that community response to newcomers' contributions
 affects their long term commitment to the project~\cite{choi2010socialization}.
@@ -310,11 +323,11 @@ Figure~\ref{fig:up} plots the sum of the interaction variables (excluding
 reputation) by the number of repo.
 
 \begin{figure}[p] \centering
-\includegraphics[scale=0.6]{figures/number_comments_density_ggplot.png}
+\includegraphics[width=0.9\columnwidth]{figures/number_comments_density_ggplot.png}
 \caption{User participation density plots.} \label{fig:up} \end{figure}
 
 \begin{figure}[p] \centering
-\includegraphics[scale=0.6]{figures/comments_on_pr_density_ggplot.png}
+\includegraphics[width=0.9\columnwidth]{figures/comments_on_pr_density_ggplot.png}
 \caption{Attention pull request receives density plots.} \label{fig:aprr}
 \end{figure}
 
@@ -495,17 +508,17 @@ ways pull requests may be used in different projects, and how the way they are
 used may change depending on the type of user submitting them.
 
 \begin{figure}[p] \centering
-\includegraphics[scale=0.6]{figures/number_comments_density_repeaters_ggplot.png}
+\includegraphics[width=0.9\columnwidth]{figures/number_comments_density_repeaters_ggplot.png}
 \caption{User participation density plots for users who submit at least one
 other pull request in our data set.} \label{fig:repeaters} \end{figure}
 
 \begin{figure}[p] \centering
-\includegraphics[scale=0.6]{figures/number_comments_density_repeaters_10_ggplot.png}
+\includegraphics[width=0.9\columnwidth]{figures/number_comments_density_repeaters_10_ggplot.png}
 \caption{User participation density plots for users who submit at least ten
 other pull requests in our data set.} \label{fig:repeaters_10} \end{figure}
 
 \begin{figure}[p] \centering
-\includegraphics[scale=0.6]{figures/commented_pullrequests_totals_ggplot.png}
+\includegraphics[width=0.9\columnwidth]{figures/commented_pullrequests_totals_ggplot.png}
 \caption{Total number of pull requests commented on and total number of pull
 requests submitted for each user.} \label{fig:commented_pullrequests_totals}
 \end{figure}
@@ -673,6 +686,13 @@ positive cases, but only in a few repositories. Similarly, project titles were
 often predictive of acceptance but those terms are not useful for predicting
 acceptance across projects. Future work studying linguistic features in this way
 should account for these types of project-specific vocabularies.
+
+Our analysis focused only on behavior of developers leading up to the submission
+of their first pull request and the community response to that pull request. We
+consider this a critical moment in the the socialization process since this task
+is often considered as a core task that a developer can participate in. Future
+studies should invetigate how community response at this moment affects
+continued contribution and commitment to the project by developers.
 
 Finally, to better understand the way that the GitHub interface affects
 developer behavior will require further qualitative study. While there have been
