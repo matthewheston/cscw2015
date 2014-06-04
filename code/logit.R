@@ -1,4 +1,5 @@
 library(logistf)
+library(psych)
 # library("RMySQL")
 # 
 # con <- dbConnect(MySQL(),
