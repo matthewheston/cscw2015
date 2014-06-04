@@ -263,7 +263,7 @@ Our study examines community response to a user's first pull request. Research
 on Wikipedia has shown that community response to newcomers' contributions
 affects their long term commitment to the project~\cite{choi2010socialization}.
 We expect a similar effect in FLOSS projects. Shibuya and
-Tamai~\cite{shibuya2009understanding} found that at least on factor that
+Tamai~\cite{shibuya2009understanding} found that at least one factor that
 contributes to difficulty for newcomers to FLOSS projects is a lack of response
 from core developers. We focus on response to a user's first pull request as
 this represents a critical moment in the socialization process of newcomers.
@@ -379,12 +379,41 @@ using developer and community behaviors to predict whether pull requests are
 merged. Overall, we found that participating in technical discussions through 
 pull request comments and issue comments made statistically significant 
 difference on whether or not a pull request was merged, but the difference was 
-so small as to be practically meaningless. We discuss the results of these 
-regressions in detail and provide additional descriptive statistics below.
+so small as to be practically meaningless. Table~\ref{tbl:logit_coef} shows the 
+results of the logistic regressions and displays the coefficients and standard 
+errors for each predictor. Table~\ref{tbl:logit_odds} shows the same models but 
+provides odds ratios and confidence intervals instead. We discuss the results 
+of these regressions in detail and provide additional descriptive statistics below.
+
+\begin{table}[!htbp] \centering 
+  \caption{Descriptive statistics for predictors included in logistic regressions} 
+  \label{tbl:descriptives} 
+\begin{tabular}{@{\extracolsep{5pt}}lrrrr} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{2}{c}{Merged} & \multicolumn{2}{c}{Not Merged} \\ 
+Statistic & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & 
+\multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St.Dev} \\ 
+\hline \\[-1.8ex] 
+\multicolumn{5}{l}{Developer Variables} \\
+Reputation & 129.92 & 949.68 & 83.08 & 513.08  \\  
+PR comments & 0.78 & 15.44 & 0.25 & 3.28\\ 
+Issue comments & 3.71 & 66.77 & 1.69 & 22.77  \\ 
+Issues opened & 0.68 & 5.25 & 0.48 & 2.28 \\ 
+\multicolumn{5}{l}{Community Variables} \\
+PR comments & 2.73 & 5.64 & 3.25 & 4.43 \\ 
+\hline \\[-1.8ex] 
+\end{tabular} 
+\end{table}
+
+Our descriptive statistics (Table~\ref{tbl:descriptives}) show remarkable 
+variation in all measures of engagement. All of the means are quie low, though 
+issue comments and pull request comments posted by community members are 
+slightly more common than other types of engagement.
 
 \begin{table*}[!htbp] \centering 
   \caption{Logisitic regressions: Predicting pull request merges (coefficients)} 
-  \label{} 
+  \label{tbl:logit_coef} 
 \begin{tabular}{@{\extracolsep{5pt}}lcccccc} 
 \\[-1.8ex]\hline  
 \\[-1.8ex] & (1) & (2) & (3) & (4) & (5) & (6)\\ 
@@ -414,28 +443,28 @@ regressions in detail and provide additional descriptive statistics below.
 
 \begin{table*}[!htbp] \centering 
   \caption{Logisitic regressions: Predicting pull request merges (odds ratio and confidence intervals)} 
-  \label{} 
+  \label{tbl:logit_odds} 
 \begin{tabular}{@{\extracolsep{5pt}}lcccccc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
 \\[-1.8ex] & (1) & (2) & (3) & (4) & (5) & (6)\\ 
 \hline \\[-1.8ex] 
- Reputation &  & 1.00$^{***}$ & 1.00$^{***}$ &  & 1.00$^{***}$ & 1.00$^{***}$ \\ 
+ Reputation &  & 1.00 & 1.00 &  & 1.00 & 1.00 \\ 
   &  & (1.00, 1.00) & (1.00, 1.00) &  & (1.00, 1.00) & (1.00, 1.00) \\ 
   & & & & & & \\
- PR comments (developer) & 1.01$^{***}$ & 1.01$^{***}$ & 1.01$^{***}$ &  &  & 1.01$^{***}$ \\ 
+ PR comments (developer) & 1.01 & 1.01 & 1.01 &  &  & 1.01 \\ 
   & (1.01, 1.03) & (1.00, 1.02) & (1.01, 1.02) &  &  & (1.00, 1.03) \\ 
   & & & & & & \\ 
- Issue comments &  &  &  & 1.00$^{***}$ & 1.00$^{***}$ & 1.00$^{***}$ \\ 
+ Issue comments &  &  &  & 1.00 & 1.00 & 1.00 \\ 
   &  &  &  & (1.00, 1.00) & (1.00, 1.00) & (1.00, 1.00) \\ 
   & & & & & & \\ 
- Issues opened &  &  &  & 1.02$^{***}$ & 1.02$^{***}$ & 1.02$^{***}$ \\ 
+ Issues opened &  &  &  & 1.02 & 1.02 & 1.02 \\ 
   &  &  &  & (1.00, 1.03) & (1.00, 1.03) & (1.00, 1.03) \\ 
   & & & & & & \\ 
-  PR comments (others) &  &  & 0.97$^{***}$ &  &  & 0.97$^{***}$ \\ 
+  PR comments (others) &  &  & 0.97 &  &  & 0.97 \\ 
    &  &  & (0.96, 0.98) &  &  & (0.96, 0.98) \\ 
    & & & & & & \\
- Constant & 0.64$^{***}$ & 0.64$^{***}$ & 0.69$^{***}$ & 0.64$^{***}$ & 0.63$^{***}$ & 0.69$^{***}$ \\ 
+ Constant & 0.64 & 0.64 & 0.69 & 0.64 & 0.63 & 0.69 \\ 
   & (0.62, 0.66) & (0.61, 0.66) & (0.67, 0.73) & (0.61, 0.66) & (0.61, 0.66) & (0.66, 0.72) \\ 
   & & & & & & \\ 
 \hline \\[-1.8ex] 
@@ -492,6 +521,14 @@ these variables (Spearman's $\rho$ = 0.44), indicating that users do not
 necessarily participate in more commenting as they continue to submit more pull
 requests.
 
+The results of our logistic regressions suggest that developers who comment on 
+pull requests before submitting their own are slightly more likely to have 
+their own pull request merged (see Models 1-3 and 6 in 
+Table~\ref{tbl:logit_coef}). Though the effect is statisticall significant, the 
+odds ratio and confidence interval show that the effect is quite small (OR = 
+1.01). This effect holds when we control for developer's 
+reputation and community's response as well. 
+
 It's worth noting the one extreme outlier present in our data. One
 user-submitted pull request received 200 comments and was submitted by a user
 who had commented on 900 previous pull requests. This is an interesting case of
@@ -525,8 +562,16 @@ requests submitted for each user.} \label{fig:commented_pullrequests_totals}
 
 \subsubsection{Issues}
 
+We also examined the effects of participating in discussions about issues and 
+found that commenting on issues does not impact whether a developer's pull 
+request will be merged (see Models 4-6 in 
+Table~\ref{tbl:logit_coef}). Opening issues, however, has a small significant 
+positive effect (OR = 1.02) on whether one's pull request will be merged. 
+Though, 1.00 falls within the confidence interval for issues opened, so the 
+statistical effect may actually be practically meaningless.
 
-\subsection{Community's Response} In Figure~\ref{fig:up}, we see more variance
+\subsection{Community's Response} 
+In Figure~\ref{fig:up}, we see more variance
 in the number of comments on first pull requests than we did with the number of
 pull requests users commented on before submitting. However, this variable does
 not seem to be a good predictor of whether or not a pull request is merged,
@@ -617,10 +662,14 @@ framework~\cite{ducheneaut_socialization_2005, huang_mining_2005,
 ye_toward_2003}, we generally do not see this pattern in our GitHub data set.
 Although some developers do leave comments on other pull requests before
 submitting their own, the majority of developers do not, including those that
-will continue to submit code changes. There are many reasons this might be the
-case.
+will continue to submit code changes. Similarly, developers do not comment on 
+or submit issues before submitting pull requests. When developers do engage in
+social interaction before submitting a pull request, they gain only marginal
+increases in the odds that their code will be accepted.
 
-As mentioned in Section~\ref{results_engagement}, GitHub's interface makes it
+There are many reasons users do not socially interact before submitting 
+material contributions to FLOSS projects on GitHub. As mentioned in 
+Section~\ref{results_engagement}, GitHub's interface makes it
 fairly easy to submit changes. Users only need to click a button to create a
 copy of the repository that they can make commits on, and then click another
 button to submit those commits as a pull request when they are finished. This
@@ -664,11 +713,11 @@ that are harder to detect when working with data at scale.
 \subsection{Future Work} \label{sec:future_work}
 
 In examining developer engagement and community response, our study was
-primarily concerned with social factors within open source software development
+primarily concerned with social factors within FLOSS development
 communities. It's possible that looking at only social factors is not enough to
-understand what contributes to acceptance on GitHub. Static analysis tools may
-be used in addition to the metrics we used in this study to further explore how
-the code itself affects whether or not a pull request is accepted.
+understand what contributes to code acceptance on GitHub. Static analysis tools 
+may be used in addition to the metrics we used in this study to further explore 
+how the code itself affects whether or not a pull request is accepted.
 
 In studying how communities respond to pull requests, we found in most cases,
 there was little community response. As mentioned above, attraction of new
