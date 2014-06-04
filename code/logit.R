@@ -44,7 +44,6 @@ summary(i_logit.3)
 anova(i_logit.1,i_logit.2, test="Chisq") 
 anova(i_logit.2,i_logit.3, test="Chisq") 
 
-
 # get odds-ratios for predictors in best model
 exp(cbind(OR = coef(i_logit.2), confint(i_logit.2)))
 
@@ -74,11 +73,32 @@ exp(cbind(OR = coef(big_logit.2), confint(big_logit.2)))
 anova(big_logit.2, pr_logit.4, test="Chisq")
 anova(big_logit.2, i_logit.2, test="Chisq")
 
-# PLOT SOME STUFF
-# ggplot(data=feature_set, aes(x=pr_comments_user, y=merged)) + 
-#   geom_line(aes(x=issue_comments, y=merged)) +
-#   geom_point() +
-#   stat_smooth(method="glm", family="binomial", se=FALSE)
-# ggplot(data=feature_set, aes(x=issue_comments, y=merged)) + 
-#   geom_point() +
-#   stat_smooth(method="glm", family="binomial", se=FALSE)
+# make our pretty table
+or.vector1 <- exp(pr_logit.1$coef)
+or.vector2 <- exp(pr_logit.2$coef)
+or.vector3 <- exp(pr_logit.4$coef)
+or.vector4 <- exp(i_logit.2$coef)
+or.vector5 <- exp(i_logit.3$coef)
+or.vector6 <- exp(big_logit.2$coef)
+ci.vector1 <- exp(confint(pr_logit.1))
+ci.vector2 <- exp(confint(pr_logit.2))
+ci.vector3 <- exp(confint(pr_logit.4))
+ci.vector4 <- exp(confint(i_logit.2))
+ci.vector5 <- exp(confint(i_logit.2))
+ci.vector6 <- exp(confint(big_logit.2))
+stargazer(pr_logit.1,pr_logit.2,pr_logit.4,i_logit.2,i_logit.3,big_logit.2,
+          coef=list(or.vector1,or.vector2,
+                    or.vector3,or.vector4,
+                    or.vector5,or.vector6),
+          ci = T,
+          ci.custom = list(ci.vector1,ci.vector2,
+                           ci.vector3,ci.vector4,
+                           ci.vector5,ci.vector6),
+          dep.var.caption = "", 
+          dep.var.labels.include = F,
+          digits = 2,
+          title="Logisitic regressions: Predicting pull request merges (odds ratio and confidence intervals)")
+stargazer(pr_logit.1,pr_logit.2,pr_logit.4,i_logit.2,i_logit.3,big_logit.2, 
+          dep.var.caption = "", 
+          dep.var.labels.include = F,
+          title="Logisitic regressions: Predicting pull request merges (coefficients and standard error)")

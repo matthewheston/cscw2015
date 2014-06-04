@@ -274,36 +274,36 @@ this represents a critical moment in the socialization process of newcomers.
 
 Data was collected using the GitHub API.\footnote{http://developer.github.com/}
 We used a collection of node.js scripts to collect data from the API to store in
-a MySQL database.\footnote{These scripts are available at
-http://www.github.com/matthewheston/gh-collector.} In selecting which
-repositories to use for our analysis, we started with the top 100 most starred
-repositories on GitHub. We started with this list with the assumption that they
-were popular repositories that would be maintained by an active community. From
-these 100, we manually filtered out certain projects that we expected would
-follow different development patterns than a typical programming project, for
-example, collections of configuration files for text editors and shells,
-collections of icons, etc. We also excluded repositories that were used
-primarily for demonstration or documentation purposes, such as sample web
-applications to demonstrate use of a certain web framework. After filtering our
-intial list of 100, 45 repositories remained in our data set for analysis. We
-consider only pull requests with a status of closed. This resulted in
-approximately 44,400 pull requests. We further filtered this data by selecting
-only the first pull request a user submitted to a repository, leaving 13,383
-pull requests. The distribution of these pull requests across repositories
-ranges from 10 to 1,489, with a median of 210. To find merged pull requests, we
-first filter all pull requests that are marked as merged by the GitHub API,
-meaning that the project maintainers used GitHub's merge feature to accept the
-pull request. In some repositories, project maintainers use a different workflow
-when accepting pull requests, wherein the code changes are accepted, but it is
-not reflected as merged on GitHub. In most of these cases, there is a standard
-way of reflecting this in the commit comments, so we use some naive heuristics
-for identifying these requests by searching commit comments for certain text
-patterns. For example, in many projects, the project maintainer will manually
-add the commits from the pull request, and create a new commit with a commit
-message that follows the pattern "Closes {number}" where {number} is the pull
-request ID on GitHub. Finding merged pull requests using both the status from
-the GitHub API as well as these text patterns results in finding 5,239, or
-39.1\% of first pull requests being merged.
+a MySQL database.\footnote{These scripts are available at [Removed for blind
+review].} In selecting which repositories to use for our analysis, we started
+with the top 100 most starred repositories on GitHub. We started with this list
+with the assumption that they were popular repositories that would be maintained
+by an active community. From these 100, we manually filtered out certain
+projects that we expected would follow different development patterns than a
+typical programming project, for example, collections of configuration files for
+text editors and shells, collections of icons, etc. We also excluded
+repositories that were used primarily for demonstration or documentation
+purposes, such as sample web applications to demonstrate use of a certain web
+framework. After filtering our intial list of 100, 45 repositories remained in
+our data set for analysis. We consider only pull requests with a status of
+closed. This resulted in approximately 44,400 pull requests. We further filtered
+this data by selecting only the first pull request a user submitted to a
+repository, leaving 13,383 pull requests. The distribution of these pull
+requests across repositories ranges from 10 to 1,489, with a median of 210. To
+find merged pull requests, we first filter all pull requests that are marked as
+merged by the GitHub API, meaning that the project maintainers used GitHub's
+merge feature to accept the pull request. In some repositories, project
+maintainers use a different workflow when accepting pull requests, wherein the
+code changes are accepted, but it is not reflected as merged on GitHub. In most
+of these cases, there is a standard way of reflecting this in the commit
+comments, so we use some naive heuristics for identifying these requests by
+searching commit comments for certain text patterns. For example, in many
+projects, the project maintainer will manually add the commits from the pull
+request, and create a new commit with a commit message that follows the pattern
+"Closes {number}" where {number} is the pull request ID on GitHub. Finding
+merged pull requests using both the status from the GitHub API as well as these
+text patterns results in finding 5,239, or 39.1\% of first pull requests being
+merged.
 
 \subsection{Data Analysis} \label{sec:data_analysis} We primarily used logistic
 regression for our statistical analysis. In all cases, we use various aspects of
@@ -322,14 +322,14 @@ discussions before submitting code~\cite{von_krogh_community_2003}.
 Figure~\ref{fig:up} plots the sum of the interaction variables (excluding
 reputation) by the number of repo.
 
-\begin{figure}[p] \centering
-\includegraphics[width=0.9\columnwidth]{figures/number_comments_density_ggplot.png}
-\caption{User participation density plots.} \label{fig:up} \end{figure}
+\begin{figure*}[p] \centering
+\includegraphics[width=0.8\textwidth]{figures/number_comments_density_ggplot.png}
+\caption{User participation density plots.} \label{fig:up} \end{figure*}
 
-\begin{figure}[p] \centering
-\includegraphics[width=0.9\columnwidth]{figures/comments_on_pr_density_ggplot.png}
+\begin{figure*}[p] \centering
+\includegraphics[width=0.8\textwidth]{figures/comments_on_pr_density_ggplot.png}
 \caption{Attention pull request receives density plots.} \label{fig:aprr}
-\end{figure}
+\end{figure*}
 
 \subsection{Community's Response} In addition to measuring the activity of a
 developer in the community before submitting a pull request, we are also
@@ -373,6 +373,7 @@ cross validation.
   \end{tabular}
 \end{table}
 
+\newpage
 \section{Results} \label{chap:results}
 Table~\ref{t/l:logit_reg} summarizes the results of our logistic regressions 
 using developer and community behaviors to predict whether pull requests are 
@@ -544,21 +545,21 @@ questions or voicing their opinions. This example demonstrates the different
 ways pull requests may be used in different projects, and how the way they are
 used may change depending on the type of user submitting them.
 
-\begin{figure}[p] \centering
-\includegraphics[width=0.9\columnwidth]{figures/number_comments_density_repeaters_ggplot.png}
+\begin{figure*}[p] \centering
+\includegraphics[width=0.8\textwidth]{figures/number_comments_density_repeaters_ggplot.png}
 \caption{User participation density plots for users who submit at least one
-other pull request in our data set.} \label{fig:repeaters} \end{figure}
+other pull request in our data set.} \label{fig:repeaters} \end{figure*}
 
-\begin{figure}[p] \centering
-\includegraphics[width=0.9\columnwidth]{figures/number_comments_density_repeaters_10_ggplot.png}
+\begin{figure*}[p] \centering
+\includegraphics[width=0.8\textwidth]{figures/number_comments_density_repeaters_10_ggplot.png}
 \caption{User participation density plots for users who submit at least ten
-other pull requests in our data set.} \label{fig:repeaters_10} \end{figure}
+other pull requests in our data set.} \label{fig:repeaters_10} \end{figure*}
 
-\begin{figure}[p] \centering
-\includegraphics[width=0.9\columnwidth]{figures/commented_pullrequests_totals_ggplot.png}
+\begin{figure*}[htbp] \centering
+\includegraphics[width=0.8\textwidth]{figures/commented_pullrequests_totals_ggplot.png}
 \caption{Total number of pull requests commented on and total number of pull
 requests submitted for each user.} \label{fig:commented_pullrequests_totals}
-\end{figure}
+\end{figure*}
 
 \subsubsection{Issues}
 
