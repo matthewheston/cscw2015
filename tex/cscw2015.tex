@@ -246,6 +246,19 @@ understand social and development activities, and using GitHub data allows us to
 explicitly connect social and code contributions and to examine their
 relationships.
 
+In this study, we focus on behavior leading up to a developer's first pull
+request.  Previous studies have distinguished types of activity in FLOSS
+repositories and found there is a core group of developers who work on
+functionality while most members of the community contribute through
+participating in activities such as reporting bugs and technical
+discussions~\cite{dinh2005freebsd, mockus2002two}. Previous studies have also
+shown that developers who contribute code to the repository go through a
+socialization phase by participating in these peripheral activities and then
+moving towards the central group of primary
+developers~\cite{ducheneaut_socialization_2005, von_krogh_community_2003}. We
+study activity prior to the first pull request to understand this socialization
+process and how it affects community response to code contributions.
+
 Our study examines community response to a user's first pull request. Research
 on Wikipedia has shown that community response to newcomers' contributions
 affects their long term commitment to the project~\cite{choi2010socialization}.
@@ -310,11 +323,11 @@ Figure~\ref{fig:up} plots the sum of the interaction variables (excluding
 reputation) by the number of repo.
 
 \begin{figure}[p] \centering
-\includegraphics[scale=0.6]{figures/number_comments_density_ggplot.png}
+\includegraphics[width=0.9\columnwidth]{figures/number_comments_density_ggplot.png}
 \caption{User participation density plots.} \label{fig:up} \end{figure}
 
 \begin{figure}[p] \centering
-\includegraphics[scale=0.6]{figures/comments_on_pr_density_ggplot.png}
+\includegraphics[width=0.9\columnwidth]{figures/comments_on_pr_density_ggplot.png}
 \caption{Attention pull request receives density plots.} \label{fig:aprr}
 \end{figure}
 
@@ -369,42 +382,67 @@ difference on whether or not a pull request was merged, but the difference was
 so small as to be practically meaningless. We discuss the results of these 
 regressions in detail and provide additional descriptive statistics below.
 
-\begin{table*}[ht]
-\centering
-\begin{tabular}{lllllll}
-\textbf{Predictor} & \textbf{Model 1} & \textbf{Model 2} & \textbf{Model 3} & 
-\textbf{Model 4} & \textbf{Model 5} & \textbf{Model 6} \\ \hline
-\multicolumn{7}{l}{Developer} \\
-\-\hspace{1em}Reputation &  & 7.82e-5** & 8.17e-5** &  & 8.05e-5** & 7.98e-5* \\
- &  & 3.03e-5 & 3.06e-5 &  & 3.08e-5 & 3.16e-5 \\
- &  &  & 1.00 &  &  & 1.00 \\
-\-\hspace{1em}Pull Request Comments & 0.014** & 0.001* & 0.013** &  &  & 0.014* 
-\\
- & 0.005 & 0.0005 & 0.004 &  &  & 0.006 \\
- &  &  & 1.01 &  &  & 1.01 \\
-\-\hspace{1em}Issue Comments &  &  &  & 0.001 & 8.12e-4 & -9.57e-4 \\
- &  &  &  & 0.001 & 8.14e-4 & 0.001 \\
- &  &  &  &  &  & 1.00 \\
-\-\hspace{1em}Issues Opened &  &  &  & 0.016 & 0.016 & 0.016* \\
- &  &  &  & 0.008 & 0.008 & 0.008 \\
- &  &  &  &  &  & 1.02 \\
-\multicolumn{7}{l}{Community} \\
-\-\hspace{1em}Pull Request Comments &  &  & -0.030*** &  &  & -0.030*** \\
- &  &  & 0.004 &  &  & 0.004 \\
- &  &  & 0.97 &  &  & 0.97 \\
-Constant & -0.446*** & -0.453*** & -0.364*** & -0.453*** & -0.459*** & 
--0.037*** \\
- & 0.018 & 0.018 & 0.022 & 0.018 & 0.018 & 0.022 \\ \hline
-\multicolumn{7}{p{40em}}{\textit{Note: We report the coefficient and standard 
-error for each predictor in each model. In the best fit models (3 and 6), we 
-also report the odds ratios. Predictors' significance are indicated with 
-asterisk where *, **, *** represent p \textless 0.1, p \textless 0.05, p 
-\textless 0.001, respectively.}}
-\end{tabular}
-\caption{Logistic Regression Results: Predicting whether a pull request will be 
-merged}  
-\label{tab:logit_reg}
-\end{table*} 
+\begin{table*}[!htbp] \centering 
+  \caption{Logisitic regressions: Predicting pull request merges (coefficients)} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lcccccc} 
+\\[-1.8ex]\hline  
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5) & (6)\\ 
+\hline \\[-1.8ex] 
+ Reputation &  & 0.0001$^{***}$ & 0.0001$^{***}$ &  & 0.0001$^{***}$ & 0.0001$^{**}$ \\ 
+  &  & (0.00003) & (0.00003) &  & (0.00003) & (0.00003) \\ 
+  & & & & & & \\ 
+ Pull request comments (developer) & 0.014$^{***}$ & 0.010$^{**}$ & 0.011$^{***}$ &  &  & 0.014$^{**}$ \\ 
+  & (0.005) & (0.005) & (0.004) &  &  & (0.006) \\ 
+  & & & & & & \\ 
+ Issue comments &  &  &  & 0.001 & 0.001 & $-$0.001 \\ 
+  &  &  &  & (0.001) & (0.001) & (0.001) \\ 
+  & & & & & & \\ 
+ Issues opened &  &  &  & 0.016$^{*}$ & 0.016$^{*}$ & 0.016$^{**}$ \\ 
+  &  &  &  & (0.008) & (0.008) & (0.008) \\ 
+  & & & & & & \\ 
+ Pull request comments (others) &  &  & $-$0.030$^{***}$ &  &  & $-$0.030$^{***}$ \\ 
+   &  &  & (0.004) &  &  & (0.004) \\ 
+   & & & & & & \\
+ Constant & $-$0.446$^{***}$ & $-$0.453$^{***}$ & $-$0.364$^{***}$ & $-$0.453$^{***}$ & $-$0.459$^{***}$ & $-$0.372$^{***}$ \\ 
+  & (0.018) & (0.018) & (0.022) & (0.018) & (0.018) & (0.022) \\ 
+  & & & & & & \\ 
+\hline \\[-1.8ex]  
+\multicolumn{7}{l}{\textit{Note:} $^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table*}
+
+\begin{table*}[!htbp] \centering 
+  \caption{Logisitic regressions: Predicting pull request merges (odds ratio and confidence intervals)} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lcccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5) & (6)\\ 
+\hline \\[-1.8ex] 
+ Reputation &  & 1.00$^{***}$ & 1.00$^{***}$ &  & 1.00$^{***}$ & 1.00$^{***}$ \\ 
+  &  & (1.00, 1.00) & (1.00, 1.00) &  & (1.00, 1.00) & (1.00, 1.00) \\ 
+  & & & & & & \\
+ PR comments (developer) & 1.01$^{***}$ & 1.01$^{***}$ & 1.01$^{***}$ &  &  & 1.01$^{***}$ \\ 
+  & (1.01, 1.03) & (1.00, 1.02) & (1.01, 1.02) &  &  & (1.00, 1.03) \\ 
+  & & & & & & \\ 
+ Issue comments &  &  &  & 1.00$^{***}$ & 1.00$^{***}$ & 1.00$^{***}$ \\ 
+  &  &  &  & (1.00, 1.00) & (1.00, 1.00) & (1.00, 1.00) \\ 
+  & & & & & & \\ 
+ Issues opened &  &  &  & 1.02$^{***}$ & 1.02$^{***}$ & 1.02$^{***}$ \\ 
+  &  &  &  & (1.00, 1.03) & (1.00, 1.03) & (1.00, 1.03) \\ 
+  & & & & & & \\ 
+  PR comments (others) &  &  & 0.97$^{***}$ &  &  & 0.97$^{***}$ \\ 
+   &  &  & (0.96, 0.98) &  &  & (0.96, 0.98) \\ 
+   & & & & & & \\
+ Constant & 0.64$^{***}$ & 0.64$^{***}$ & 0.69$^{***}$ & 0.64$^{***}$ & 0.63$^{***}$ & 0.69$^{***}$ \\ 
+  & (0.62, 0.66) & (0.61, 0.66) & (0.67, 0.73) & (0.61, 0.66) & (0.61, 0.66) & (0.66, 0.72) \\ 
+  & & & & & & \\ 
+\hline \\[-1.8ex] 
+
+\multicolumn{7}{l}{\textit{Note:} $^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table*}
 
 \subsection{Developer's Engagement} \label{results_engagement}
 
@@ -470,17 +508,17 @@ ways pull requests may be used in different projects, and how the way they are
 used may change depending on the type of user submitting them.
 
 \begin{figure}[p] \centering
-\includegraphics[scale=0.6]{figures/number_comments_density_repeaters_ggplot.png}
+\includegraphics[width=0.9\columnwidth]{figures/number_comments_density_repeaters_ggplot.png}
 \caption{User participation density plots for users who submit at least one
 other pull request in our data set.} \label{fig:repeaters} \end{figure}
 
 \begin{figure}[p] \centering
-\includegraphics[scale=0.6]{figures/number_comments_density_repeaters_10_ggplot.png}
+\includegraphics[width=0.9\columnwidth]{figures/number_comments_density_repeaters_10_ggplot.png}
 \caption{User participation density plots for users who submit at least ten
 other pull requests in our data set.} \label{fig:repeaters_10} \end{figure}
 
 \begin{figure}[p] \centering
-\includegraphics[scale=0.6]{figures/commented_pullrequests_totals_ggplot.png}
+\includegraphics[width=0.9\columnwidth]{figures/commented_pullrequests_totals_ggplot.png}
 \caption{Total number of pull requests commented on and total number of pull
 requests submitted for each user.} \label{fig:commented_pullrequests_totals}
 \end{figure}
@@ -648,6 +686,13 @@ positive cases, but only in a few repositories. Similarly, project titles were
 often predictive of acceptance but those terms are not useful for predicting
 acceptance across projects. Future work studying linguistic features in this way
 should account for these types of project-specific vocabularies.
+
+Our analysis focused only on behavior of developers leading up to the submission
+of their first pull request and the community response to that pull request. We
+consider this a critical moment in the the socialization process since this task
+is often considered as a core task that a developer can participate in. Future
+studies should invetigate how community response at this moment affects
+continued contribution and commitment to the project by developers.
 
 Finally, to better understand the way that the GitHub interface affects
 developer behavior will require further qualitative study. While there have been
